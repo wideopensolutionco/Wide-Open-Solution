@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wide Open Solution | Tree, Dirt &amp; Demolition Services — Jefferson, TX</title>
+<meta name="description" content="Wide Open Solution delivers reliable tree, dirt, and demolition services in Jefferson, TX — excavation, land clearing, demolition, stump grinding, and site prep.">
+<link rel="icon" href="https://wideopensolution.co/wp-content/uploads/2026/04/logo-1-2-e1775063846174.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================= TOKENS ============================= */
+:root{
+  --dark:#14181a;
+  --dark-2:#1b201f;
+  --dark-3:#232a28;
+  --stone:#eee8d9;
+  --stone-2:#e3dac3;
+  --paper:#faf8f2;
+  --ink:#1b1d1a;
+  --ink-soft:#4b514c;
+  --gold:#c1902f;
+  --gold-2:#9c7124;
+  --gold-soft:rgba(193,144,47,.18);
+  --moss:#4c5a41;
+  --line:rgba(255,255,255,.13);
+  --line-dark:rgba(20,24,26,.12);
+  --shadow:0 24px 60px -20px rgba(0,0,0,.45);
+  --radius:2px;
+  --maxw:1200px;
+  --ff-head:'Fraunces', serif;
+  --ff-body:'Work Sans', sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:var(--ff-body);color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;}
+h1,h2,h3,h4{font-family:var(--ff-head);margin:0;line-height:1.12;font-weight:600;letter-spacing:-0.01em;}
+p{margin:0;}
+ul{margin:0;padding:0;list-style:none;}
+::selection{background:var(--gold);color:var(--dark);}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+.hidden{display:none !important;}
+
+/* ============================= INTRO SPLASH ============================= */
+#intro{
+  position:fixed;inset:0;z-index:9999;background:radial-gradient(120% 140% at 50% 30%,#1d2422 0%,#0e1110 70%);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;
+  transition:opacity .7s ease, visibility .7s ease;overflow:hidden;cursor:pointer;
+}
+#intro.gone{opacity:0;visibility:hidden;pointer-events:none;}
+.bolt-flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none;}
+.intro-inner{position:relative;display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center;}
+.intro-logo-ring{width:112px;height:112px;border-radius:50%;border:1px solid rgba(193,144,47,.35);display:flex;align-items:center;justify-content:center;position:relative;opacity:0;animation:introFadeUp .7s ease .15s forwards;}
+.intro-logo-ring::before{content:'';position:absolute;inset:-14px;border-radius:50%;border:1px solid rgba(193,144,47,.15);}
+.intro-logo-ring img{width:64px;height:64px;object-fit:contain;filter:grayscale(1) brightness(1.6);animation:introLogoColor 2.6s ease .9s forwards;}
+@keyframes introLogoColor{to{filter:grayscale(0) brightness(1);}}
+.intro-bolt{width:26px;height:70px;opacity:0;animation:introFadeUp .5s ease .05s forwards;}
+.intro-bolt path{fill:none;stroke:var(--gold);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:140;stroke-dashoffset:140;animation:drawBolt 1s ease .6s forwards, boltGlow .18s ease 1.6s 3;}
+.intro-name{opacity:0;animation:introFadeUp .7s ease 1.5s forwards;}
+.intro-name .line1{display:block;font-family:var(--ff-head);font-size:clamp(28px,5vw,44px);color:var(--stone);letter-spacing:.02em;position:relative;}
+.intro-name .line1 span{position:relative;display:inline-block;background:linear-gradient(100deg,var(--stone) 40%,var(--gold) 50%,var(--stone) 60%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 2.6s ease 1.7s 1;}
+.intro-name .line2{display:block;margin-top:6px;font-family:var(--ff-body);font-size:11px;letter-spacing:.32em;color:var(--gold);}
+.intro-tagline{opacity:0;font-size:12px;letter-spacing:.24em;color:rgba(238,232,217,.45);animation:introFadeUp .6s ease 2.3s forwards;}
+.intro-skip{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:.18em;color:rgba(238,232,217,.35);opacity:0;animation:introFadeUp .5s ease 2.6s forwards;}
+@keyframes introFadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+@keyframes drawBolt{to{stroke-dashoffset:0;}}
+@keyframes boltGlow{0%,100%{filter:drop-shadow(0 0 0 rgba(193,144,47,0));}50%{filter:drop-shadow(0 0 9px rgba(193,144,47,.9));}}
+@keyframes sheen{0%{background-position:200% 0;}100%{background-position:-40% 0;}}
+@media (prefers-reduced-motion: reduce){
+  #intro *{animation-duration:.01s !important; animation-delay:0s !important;}
+}
+
+/* ============================= TOPBAR + HEADER ============================= */
+.topbar{background:var(--dark);color:rgba(238,232,217,.75);font-size:12.5px;border-bottom:1px solid var(--line);}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:9px 28px;flex-wrap:wrap;gap:8px;}
+.topbar-left{display:flex;gap:22px;flex-wrap:wrap;}
+.topbar a{opacity:.9;}
+.topbar a:hover{color:var(--gold);}
+.topbar-item{display:inline-flex;align-items:center;gap:7px;}
+.dot{width:4px;height:4px;background:var(--gold);border-radius:50%;flex:none;}
+
+header.site-header{position:sticky;top:0;z-index:500;background:rgba(20,24,26,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+.header-row{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;gap:24px;}
+.brand{display:flex;align-items:center;gap:14px;min-width:0;}
+.brand img{height:58px;width:auto;max-width:180px;object-fit:contain;flex:none;}
+.brand-text{display:flex;flex-direction:column;line-height:1.15;white-space:nowrap;}
+.brand-text b{font-family:var(--ff-head);color:var(--stone);font-size:19px;letter-spacing:.01em;}
+.brand-text span{font-size:10.5px;letter-spacing:.22em;color:var(--gold);margin-top:3px;}
+
+nav.main-nav{display:flex;align-items:center;gap:2px;}
+nav.main-nav>ul{display:flex;align-items:center;gap:4px;}
+nav.main-nav>ul>li{position:relative;}
+nav.main-nav>ul>li>a{display:inline-flex;align-items:center;gap:5px;padding:10px 16px;color:rgba(238,232,217,.85);font-size:14.5px;font-weight:500;letter-spacing:.01em;border-radius:var(--radius);transition:color .2s;}
+nav.main-nav>ul>li>a:hover,nav.main-nav>ul>li>a.active{color:var(--gold);}
+.caret{width:8px;height:8px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);margin-top:-3px;opacity:.7;}
+.dropdown{position:absolute;top:100%;left:0;background:var(--dark-2);border:1px solid var(--line);min-width:250px;padding:8px;box-shadow:var(--shadow);opacity:0;visibility:hidden;transform:translateY(6px);transition:all .18s ease;}
+nav.main-nav>ul>li:hover .dropdown, nav.main-nav>ul>li:focus-within .dropdown{opacity:1;visibility:visible;transform:translateY(0);}
+.dropdown a{display:block;padding:10px 14px;font-size:13.6px;color:rgba(238,232,217,.8);border-radius:2px;}
+.dropdown a:hover{background:rgba(193,144,47,.12);color:var(--gold);}
+.header-cta{display:flex;align-items:center;gap:14px;flex:none;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 26px;font-size:13.5px;font-weight:600;letter-spacing:.03em;border:1px solid transparent;transition:all .22s ease;white-space:nowrap;}
+.btn-gold{background:var(--gold);color:var(--dark);}
+.btn-gold:hover{background:var(--stone);}
+.btn-ghost{border-color:rgba(238,232,217,.35);color:var(--stone);}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+.btn-dark{background:var(--dark);color:var(--stone);}
+.btn-dark:hover{background:var(--ink);}
+.call-btn{display:none;}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:0;padding:8px;}
+.menu-toggle span{width:24px;height:2px;background:var(--stone);}
+
+@media (max-width:980px){
+  .header-cta .btn-ghost{display:none;}
+  nav.main-nav{position:fixed;top:0;right:0;height:100vh;width:min(340px,86vw);background:var(--dark-2);flex-direction:column;align-items:stretch;padding:90px 26px 26px;transform:translateX(100%);transition:transform .3s ease;overflow-y:auto;border-left:1px solid var(--line);}
+  nav.main-nav.open{transform:translateX(0);}
+  nav.main-nav>ul{flex-direction:column;align-items:stretch;gap:0;}
+  nav.main-nav>ul>li>a{padding:15px 4px;border-bottom:1px solid var(--line);justify-content:space-between;width:100%;}
+  .dropdown{position:static;opacity:1;visibility:visible;transform:none;background:none;border:0;box-shadow:none;display:none;padding:0 0 6px 14px;}
+  li.nav-services.open .dropdown{display:block;}
+  .menu-toggle{display:flex;}
+}
+
+/* ============================= HERO ============================= */
+.hero{position:relative;background:linear-gradient(180deg,var(--dark) 0%,var(--dark-2) 100%);color:var(--stone);overflow:hidden;}
+.hero::after{content:'';position:absolute;inset:0;background:
+   linear-gradient(120deg,rgba(193,144,47,.06),transparent 45%),
+   repeating-linear-gradient(115deg,rgba(255,255,255,.025) 0 1px,transparent 1px 90px);
+   pointer-events:none;}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding:96px 28px 100px;position:relative;}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;letter-spacing:.14em;color:var(--gold);margin-bottom:22px;}
+.eyebrow::before{content:'';width:30px;height:1px;background:var(--gold);}
+.hero h1{font-size:clamp(40px,5.4vw,68px);color:var(--stone);}
+.hero h1 em{font-style:normal;color:var(--gold);}
+.hero p.lead{margin-top:24px;font-size:17px;color:rgba(238,232,217,.72);max-width:520px;}
+.hero-actions{display:flex;gap:16px;margin-top:38px;flex-wrap:wrap;}
+.hero-stats{display:flex;gap:38px;margin-top:52px;flex-wrap:wrap;}
+.hero-stats div b{display:block;font-family:var(--ff-head);font-size:30px;color:var(--stone);}
+.hero-stats div span{font-size:12px;color:rgba(238,232,217,.55);letter-spacing:.03em;}
+.hero-media{position:relative;}
+.hero-media .frame{position:relative;border:1px solid var(--line);padding:14px;}
+.hero-media img{width:100%;height:440px;object-fit:cover;}
+.hero-media .frame::before{content:'';position:absolute;top:-14px;left:-14px;width:64px;height:64px;border-top:2px solid var(--gold);border-left:2px solid var(--gold);}
+.hero-media .frame::after{content:'';position:absolute;bottom:-14px;right:-14px;width:64px;height:64px;border-bottom:2px solid var(--gold);border-right:2px solid var(--gold);}
+.hero-badge{position:absolute;left:-24px;bottom:36px;background:var(--gold);color:var(--dark);padding:16px 22px;max-width:210px;box-shadow:var(--shadow);}
+.hero-badge b{display:block;font-family:var(--ff-head);font-size:22px;}
+.hero-badge span{font-size:12px;letter-spacing:.02em;}
+@media (max-width:940px){.hero-grid{grid-template-columns:1fr;padding:64px 24px 72px;}.hero-media{order:-1;}.hero-badge{left:12px;}}
+
+/* ============================= SECTION UTILITIES ============================= */
+.section{padding:100px 0;}
+.section.tight{padding:74px 0;}
+.section-dark{background:var(--dark);color:var(--stone);}
+.section-stone{background:var(--stone);}
+.section-head{max-width:640px;margin-bottom:56px;}
+.section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+.section-head h2{font-size:clamp(28px,3.6vw,42px);}
+.section-head p{margin-top:16px;color:var(--ink-soft);font-size:16px;}
+.section-dark .section-head p{color:rgba(238,232,217,.68);}
+.eyebrow.on-light{color:var(--gold-2);}
+.eyebrow.on-light::before{background:var(--gold-2);}
+
+/* Why choose us */
+.why-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:start;}
+.why-list{margin-top:30px;display:grid;gap:16px;}
+.why-list li{display:flex;gap:12px;align-items:flex-start;font-size:15px;}
+.check{flex:none;width:20px;height:20px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.check::after{content:'';width:6px;height:10px;border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(40deg) translate(-1px,-1px);}
+.award-card{margin-top:34px;border:1px solid var(--line-dark);padding:22px 24px;display:flex;gap:16px;align-items:center;background:var(--paper);}
+.award-card svg{flex:none;width:38px;height:38px;color:var(--gold);}
+.award-card b{font-family:var(--ff-head);font-size:16px;display:block;}
+.award-card span{font-size:13px;color:var(--ink-soft);}
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-dark);margin-top:60px;border:1px solid var(--line-dark);}
+.stat-cell{background:var(--paper);padding:28px 20px;text-align:center;}
+.stat-cell b{font-family:var(--ff-head);font-size:34px;color:var(--gold-2);display:block;}
+.stat-cell span{font-size:12.5px;color:var(--ink-soft);letter-spacing:.02em;}
+@media (max-width:860px){.why-grid{grid-template-columns:1fr;gap:36px;}.stat-row{grid-template-columns:repeat(2,1fr);}}
+
+/* Pillars */
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);margin-top:70px;border:1px solid var(--line);}
+.pillar{background:var(--dark);padding:34px 26px;}
+.pillar-num{font-family:var(--ff-head);font-size:13px;color:var(--gold);letter-spacing:.06em;}
+.pillar h4{margin-top:16px;font-size:17px;color:var(--stone);}
+.pillar p{margin-top:10px;font-size:13.8px;color:rgba(238,232,217,.6);}
+@media (max-width:860px){.pillars{grid-template-columns:1fr 1fr;}}
+@media (max-width:520px){.pillars{grid-template-columns:1fr;}}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center;}
+.about-media{position:relative;}
+.about-media .stack{position:relative;}
+.about-media img.main{width:100%;height:420px;object-fit:cover;}
+.about-media img.small{position:absolute;width:52%;height:220px;object-fit:cover;left:-40px;bottom:-40px;border:6px solid var(--paper);box-shadow:var(--shadow);}
+.vision-box{margin-top:28px;border-left:2px solid var(--gold);padding:16px 0 16px 22px;}
+.vision-box h4{font-size:16px;}
+.vision-box p{margin-top:8px;font-size:14.5px;color:var(--ink-soft);}
+@media (max-width:900px){.about-grid{grid-template-columns:1fr;gap:80px;}.about-media img.small{position:static;width:100%;margin-top:16px;}}
+
+/* Services grid */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+.svc-card{background:var(--paper);border:1px solid var(--line-dark);display:flex;flex-direction:column;transition:transform .25s ease, box-shadow .25s ease;}
+.svc-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+.svc-card .thumb{position:relative;height:220px;overflow:hidden;}
+.svc-card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.svc-card:hover .thumb img{transform:scale(1.07);}
+.svc-card .thumb .idx{position:absolute;top:14px;left:14px;background:rgba(20,24,26,.75);color:var(--gold);font-size:11px;letter-spacing:.08em;padding:6px 10px;}
+.svc-body{padding:24px 24px 26px;display:flex;flex-direction:column;gap:12px;flex:1;}
+.svc-body h3{font-size:19px;}
+.svc-body p{font-size:14.3px;color:var(--ink-soft);flex:1;}
+.svc-link{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:var(--gold-2);margin-top:4px;}
+.svc-link .arrow{width:16px;height:1.5px;background:var(--gold-2);position:relative;}
+.svc-link .arrow::after{content:'';position:absolute;right:0;top:-3px;width:7px;height:7px;border-top:1.5px solid var(--gold-2);border-right:1.5px solid var(--gold-2);transform:rotate(45deg);}
+@media (max-width:940px){.svc-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:600px){.svc-grid{grid-template-columns:1fr;}}
+.center-cta{text-align:center;margin-top:52px;}
+
+/* Testimonials */
+.rev-track{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+.rev-card{background:var(--dark-3);border:1px solid var(--line);padding:28px 26px;display:flex;flex-direction:column;gap:16px;}
+.stars{display:flex;gap:3px;color:var(--gold);font-size:15px;letter-spacing:2px;}
+.rev-card p{font-size:14.5px;color:rgba(238,232,217,.82);flex:1;}
+.rev-who{display:flex;align-items:center;gap:12px;padding-top:10px;border-top:1px solid var(--line);}
+.rev-avatar{width:38px;height:38px;border-radius:50%;background:var(--gold-soft);color:var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--ff-head);font-size:14px;flex:none;}
+.rev-who b{display:block;font-size:13.5px;color:var(--stone);}
+.rev-who span{font-size:12px;color:rgba(238,232,217,.5);}
+@media (max-width:980px){.rev-track{grid-template-columns:1fr 1fr;}}
+@media (max-width:600px){.rev-track{grid-template-columns:1fr;}}
+
+/* FAQ */
+.faq-wrap{max-width:820px;margin:0 auto;}
+.faq-item{border-bottom:1px solid var(--line-dark);}
+.faq-q{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 4px;width:100%;background:none;border:0;text-align:left;font-family:var(--ff-head);font-size:17px;color:var(--ink);}
+.faq-q .plus{flex:none;width:22px;height:22px;position:relative;}
+.faq-q .plus::before,.faq-q .plus::after{content:'';position:absolute;background:var(--gold-2);top:50%;left:50%;transform:translate(-50%,-50%);}
+.faq-q .plus::before{width:16px;height:2px;}
+.faq-q .plus::after{width:2px;height:16px;transition:transform .25s ease;}
+.faq-item.open .faq-q .plus::after{transform:translate(-50%,-50%) rotate(90deg) scaleY(0);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+.faq-a p{padding:0 4px 24px;font-size:14.8px;color:var(--ink-soft);max-width:680px;}
+.faq-item.open .faq-a{max-height:220px;}
+
+/* CTA banner */
+.cta-banner{position:relative;background:var(--dark) url('https://wideopensolution.co/wp-content/uploads/2026/03/YTFMGZ3d.png') center/cover no-repeat;padding:90px 0;text-align:center;color:var(--stone);}
+.cta-banner::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,18,17,.9),rgba(15,18,17,.75));}
+.cta-banner .wrap{position:relative;}
+.cta-banner h2{font-size:clamp(26px,3.4vw,38px);max-width:640px;margin:0 auto;}
+.cta-banner p{margin:18px auto 34px;max-width:560px;color:rgba(238,232,217,.72);}
+
+/* Gallery */
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:170px;gap:10px;}
+.gal-item{position:relative;overflow:hidden;}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.gal-item:hover img{transform:scale(1.08);}
+.gal-item .cap{position:absolute;inset:auto 0 0 0;padding:14px 16px;background:linear-gradient(0deg,rgba(15,18,17,.85),transparent);color:var(--stone);font-size:12.5px;letter-spacing:.03em;opacity:0;transform:translateY(8px);transition:all .3s ease;}
+.gal-item:hover .cap{opacity:1;transform:translateY(0);}
+.gal-item.big{grid-column:span 2;grid-row:span 2;}
+@media (max-width:900px){.gal-grid{grid-template-columns:repeat(2,1fr);}.gal-item.big{grid-column:span 2;grid-row:span 1;}}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;}
+.info-card{display:flex;gap:16px;padding:22px 0;border-bottom:1px solid var(--line-dark);}
+.info-card svg{flex:none;width:22px;height:22px;color:var(--gold-2);margin-top:2px;}
+.info-card b{display:block;font-size:14.5px;margin-bottom:4px;}
+.info-card span, .info-card a{font-size:14px;color:var(--ink-soft);}
+.map-box{margin-top:26px;border:1px solid var(--line-dark);height:220px;overflow:hidden;}
+.map-box iframe{width:100%;height:100%;border:0;filter:grayscale(.35) contrast(1.05);}
+.form-card{background:var(--paper);border:1px solid var(--line-dark);padding:40px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.field{margin-bottom:18px;}
+.field label{display:block;font-size:12.5px;letter-spacing:.05em;color:var(--ink-soft);margin-bottom:8px;}
+.field input,.field textarea{width:100%;border:1px solid var(--line-dark);background:var(--paper);padding:13px 14px;font-family:inherit;font-size:14.5px;color:var(--ink);transition:border-color .2s;}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--gold);}
+.field textarea{min-height:130px;resize:vertical;}
+.form-msg{margin-top:16px;font-size:13.5px;color:var(--gold-2);display:none;}
+.form-msg.show{display:block;}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr;}.form-row{grid-template-columns:1fr;}.form-card{padding:26px;}}
+
+/* Service detail */
+.svc-hero{position:relative;height:340px;display:flex;align-items:flex-end;color:var(--stone);}
+.svc-hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;}
+.svc-hero .bg::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,18,17,.92),rgba(15,18,17,.35));}
+.svc-hero .wrap{position:relative;padding-bottom:44px;}
+.crumb{font-size:12.5px;color:rgba(238,232,217,.6);margin-bottom:14px;}
+.crumb a:hover{color:var(--gold);}
+.svc-hero h1{font-size:clamp(30px,4vw,46px);}
+.svc-detail{display:grid;grid-template-columns:1.3fr .8fr;gap:64px;padding:90px 0;}
+.svc-detail .lede{font-size:17px;color:var(--ink-soft);margin-bottom:10px;}
+.svc-detail p{color:var(--ink-soft);font-size:15.2px;margin-top:16px;}
+.svc-detail h3{margin-top:38px;font-size:22px;}
+.feat-list{margin-top:22px;display:grid;gap:14px;}
+.feat-list li{display:flex;gap:12px;font-size:14.8px;align-items:flex-start;}
+.process{margin-top:24px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.proc-step{border:1px solid var(--line-dark);padding:20px 16px;}
+.proc-step b{font-family:var(--ff-head);color:var(--gold-2);font-size:20px;display:block;}
+.proc-step span{font-size:13.3px;color:var(--ink-soft);display:block;margin-top:8px;}
+.side-card{background:var(--dark);color:var(--stone);padding:32px 28px;}
+.side-card h4{font-size:18px;}
+.side-card p{color:rgba(238,232,217,.65);font-size:14px;margin-top:12px;}
+.side-card .btn{margin-top:20px;width:100%;}
+.other-svc{margin-top:28px;border:1px solid var(--line-dark);padding:24px;background:var(--paper);}
+.other-svc h4{font-size:15px;margin-bottom:14px;}
+.other-svc li a{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line-dark);font-size:14px;}
+.other-svc li:last-child a{border-bottom:0;}
+.other-svc li a:hover{color:var(--gold-2);}
+@media (max-width:900px){.svc-detail{grid-template-columns:1fr;gap:40px;}.process{grid-template-columns:1fr 1fr;}}
+
+/* Footer */
+footer{background:var(--dark);color:rgba(238,232,217,.68);padding-top:80px;border-top:1px solid var(--line);}
+.foot-grid{display:grid;grid-template-columns:1.4fr .9fr .9fr 1.1fr;gap:50px;padding-bottom:56px;border-bottom:1px solid var(--line);}
+.foot-brand{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
+.foot-brand img{height:44px;width:auto;object-fit:contain;}
+.foot-brand b{font-family:var(--ff-head);color:var(--stone);font-size:18px;}
+footer p{font-size:13.8px;line-height:1.7;}
+.foot-social{display:flex;gap:10px;margin-top:22px;}
+.foot-social a{width:36px;height:36px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;border-radius:50%;transition:all .2s;}
+.foot-social a:hover{border-color:var(--gold);color:var(--gold);}
+footer h5{color:var(--stone);font-family:var(--ff-body);font-weight:600;font-size:14px;letter-spacing:.04em;margin-bottom:22px;}
+.foot-links li{margin-bottom:12px;font-size:13.8px;}
+.foot-links a:hover{color:var(--gold);}
+.foot-contact li{display:flex;gap:10px;margin-bottom:16px;font-size:13.6px;align-items:flex-start;}
+.foot-contact svg{flex:none;width:16px;height:16px;color:var(--gold);margin-top:2px;}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;padding:26px 0;font-size:12.8px;color:rgba(238,232,217,.45);flex-wrap:wrap;gap:10px;}
+.foot-bottom a:hover{color:var(--gold);}
+@media (max-width:900px){.foot-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:560px){.foot-grid{grid-template-columns:1fr;}}
+
+/* misc */
+.reveal{animation:riseIn .7s ease both;}
+@keyframes riseIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.badge-strip{display:flex;gap:34px;flex-wrap:wrap;align-items:center;color:rgba(238,232,217,.5);font-size:12.5px;letter-spacing:.05em;margin-top:44px;padding-top:34px;border-top:1px solid var(--line);}
+</style>
+</head>
+<body>
+
+<!-- ============================= INTRO SPLASH ============================= -->
+<div id="intro" role="img" aria-label="Wide Open Solution — loading">
+  <div class="bolt-flash" id="boltFlash"></div>
+  <div class="intro-inner">
+    <svg class="intro-bolt" viewBox="0 0 40 90" xmlns="http://www.w3.org/2000/svg">
+      <path d="M24 2 L6 48 L18 48 L14 88 L36 38 L22 38 Z"/>
+    </svg>
+    <div class="intro-logo-ring">
+      <img src="https://wideopensolution.co/wp-content/uploads/2026/04/logo-1-2-e1775063846174.webp" alt="Wide Open Solution logo">
+    </div>
+    <div class="intro-name">
+      <span class="line1"><span>WIDE OPEN SOLUTION</span></span>
+      <span class="line2">TREE &middot; DIRT &middot; DEMOLITION</span>
+    </div>
+    <div class="intro-tagline">JEFFERSON, TEXAS</div>
+  </div>
+  <div class="intro-skip">TAP TO SKIP</div>
+</div>
+
+<!-- ============================= TOPBAR ============================= -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="topbar-left">
+      <span class="topbar-item"><span class="dot"></span>210 Ma County Rd 3638, Jefferson, TX 75657</span>
+      <span class="topbar-item"><span class="dot"></span>Mon – Fri, 8:00 AM – 5:00 PM</span>
+    </div>
+    <div class="topbar-left">
+      <a href="mailto:rmcneely@wideopensolution.com" class="topbar-item">rmcneely@wideopensolution.com</a>
+      <a href="tel:9039300289" class="topbar-item">(903) 930-0289</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= HEADER ============================= -->
+<header class="site-header">
+  <div class="header-row wrap">
+    <a href="#home" class="brand">
+      <img src="https://wideopensolution.co/wp-content/uploads/2026/04/logo-1-2-e1775063846174.webp" alt="Wide Open Solution logo">
+      <span class="brand-text"><b>Wide Open Solution</b><span>TREE · DIRT · DEMOLITION</span></span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="#home" data-page="home">Home</a></li>
+        <li><a href="#about" data-page="about">About Us</a></li>
+        <li class="nav-services">
+          <a href="#services" data-page="services">Services <span class="caret"></span></a>
+          <div class="dropdown" id="navServiceList"></div>
+        </li>
+        <li><a href="#gallery" data-page="gallery">Gallery</a></li>
+        <li><a href="#contact" data-page="contact">Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-cta">
+      <a href="tel:9039300289" class="btn btn-ghost">Call Now</a>
+      <a href="#contact" class="btn btn-gold">Get a Quote</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<!-- ============================= FOOTER ============================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <img src="https://wideopensolution.co/wp-content/uploads/2026/04/logo-1-2-e1775063846174.webp" alt="Wide Open Solution logo">
+          <b>Wide Open Solution</b>
+        </div>
+        <p>Wide Open Solution provides reliable tree, dirt, and demolition services with a focus on quality, safety, and dependable results. We are committed to delivering professional outdoor solutions you can trust.</p>
+        <div class="foot-social">
+          <a href="https://www.facebook.com/p/Wide-Open-Solution-LLC-61552253652359/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H16.7V3.7C16.4 3.66 15.4 3.57 14.24 3.57c-2.42 0-4.08 1.48-4.08 4.19V9.9H7.44V13h2.72v8h3.34Z"/></svg>
+          </a>
+          <a href="https://www.yelp.com/biz/wide-open-solution-jefferson" target="_blank" rel="noopener" aria-label="Yelp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20Zm-1 5.2c1 .6 2.9 3.4 3.1 4.3.2.9-.6 1.4-1.3 1.1-1-.4-3.1-2-3.6-2.9-.6-1 0-2.1 1-2.5.3-.1.6-.1.8 0Zm-2.9 6.1c1-.2 3.3.3 4 .9.6.6.3 1.6-.5 1.8-1 .3-3.3.1-4.1-.6-.7-.6-.4-1.9.6-2.1Zm7.6.7c.9.5 1.5 2.6 1.1 3.4-.4.8-1.6.7-2-.1-.5-.9-.9-2.7-.4-3.3.3-.3.9-.3 1.3 0Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul class="foot-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Our Services</h5>
+        <ul class="foot-links" id="footServiceList"></ul>
+      </div>
+      <div>
+        <h5>Contact Information</h5>
+        <ul class="foot-contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.3 7-11.5A7 7 0 0 0 5 9.5C5 14.7 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.4"/></svg>210 Ma County Rd 3638, Jefferson, TX 75657</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z" opacity="0"/><path d="M3 6.5 12 13l9-6.5M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/></svg><a href="mailto:rmcneely@wideopensolution.com">rmcneely@wideopensolution.com</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .6 3a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c1 .3 2 .5 3 .6a2 2 0 0 1 1.7 2Z"/></svg><a href="tel:9039300289">(903) 930-0289</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>Mon – Fri &nbsp;|&nbsp; 8:00 AM – 5:00 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Wide Open Solution. All rights reserved.</span>
+      <span><a href="#contact">Get a free estimate</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============================= DATA ============================= */
+const SERVICES = [
+  {
+    id:'excavation', tag:'01', name:'Excavation Work',
+    image:'https://avatars.mds.yandex.net/i?id=1a0c6e0c01528f42facd39559d5261864740503f-5887333-images-thumbs&n=13',
+    short:'Precise digging, grading, and site preparation to support strong, stable foundations.',
+    lede:'Every strong structure starts below the surface.',
+    body:'We provide precise excavation services for digging, grading, and site preparation to support strong and stable project foundations. Our crews pair modern, well-maintained machinery with careful planning, so every cut and grade is measured against your site plan rather than guessed at. Whether you are opening ground for a new foundation, running a utility trench, or reshaping a lot for proper drainage, we treat the dirt work as the part of the project everything else depends on.',
+    features:['Foundation and footing excavation','Precision grading to plan elevation','Utility and drainage trenching','Erosion control and water management','Licensed, insured equipment operators']
+  },
+  {
+    id:'demolition', tag:'02', name:'Demolition Work',
+    image:'https://avatars.mds.yandex.net/i?id=039c8a16b2a767b99c7729efb8d0b89308879711-6475641-images-thumbs&n=13',
+    short:'Safe, controlled demolition that clears structures and readies your site for what comes next.',
+    lede:'Clearing the old, the right way, to build the new.',
+    body:'We handle safe and controlled demolition services to clear structures and prepare your site for new development. Before anything comes down, we walk the site to plan for utilities, adjoining structures, and debris routing, so the teardown stays predictable from the first swing to the final haul-off. Our equipment and crews are matched to the scale of the job, from a single outbuilding to a full structure clearance.',
+    features:['Full and partial structure demolition','Outbuilding, barn, and shed removal','Concrete and slab breakout','Debris sorting and haul-away','Site left clean and build-ready']
+  },
+  {
+    id:'tree', tag:'03', name:'Tree Services',
+    image:'https://avatars.mds.yandex.net/i?id=9d19aa24d115e5dcff31bd7006bee2dc156baaee-4434207-images-thumbs&n=13',
+    short:'Professional removal and trimming that keeps your land clear, safe, and properly maintained.',
+    lede:'Healthy land starts with well-managed trees.',
+    body:'We offer professional tree removal and trimming services to keep your land clear, safe, and properly maintained. Our crews assess each tree for health, lean, and proximity to structures or lines before any cutting begins, and we work methodically to bring trees down or back with minimal disturbance to the surrounding property.',
+    features:['Full tree removal, any size','Trimming and canopy shaping','Storm-damage and hazard tree response','Limb and brush chipping','Clean-up and haul-off included']
+  },
+  {
+    id:'stump', tag:'04', name:'Stump Removal & Grinding',
+    image:'https://avatars.mds.yandex.net/i?id=f1105d839624850d6f6ee479bd9faf7fabbaffe7-5235997-images-thumbs&n=13',
+    short:'Complete stump grinding that leaves your land clean, level, and ready to use.',
+    lede:'The last step to a truly cleared property.',
+    body:'A cut tree is only half finished until the stump is gone. We grind stumps of any size below grade so the ground can be leveled, seeded, or built on without a leftover obstacle in the way. Root systems are ground back far enough to prevent regrowth and to leave a smooth, workable surface behind.',
+    features:['Stump grinding below grade','Root flare and surface root removal','Grindings hauled off or repurposed as mulch','Fast turnaround after tree removal','Restores the area to usable ground']
+  },
+  {
+    id:'land-clearing', tag:'05', name:'Land Clearing',
+    image:'https://avatars.mds.yandex.net/i?id=3772dc15ef97865e1b91bca192e868a2baa35677-6951086-images-thumbs&n=13',
+    short:'Clearing unwanted trees, brush, and debris to open the way for your next project.',
+    lede:'Open ground is where every project begins.',
+    body:'We clear unwanted trees, brush, and debris to prepare your land for construction, agriculture, or development. Rather than clearing everything indiscriminately, we work with you to decide what stays and what goes, keeping valuable trees or natural buffers intact where you want them while opening up the ground you actually need.',
+    features:['Selective or full-acreage clearing','Brush and undergrowth removal','Root and debris removal','Land shaping for future use','Erosion-conscious clearing methods']
+  },
+  {
+    id:'site-prep', tag:'06', name:'Building Site Prep',
+    image:'https://avatars.mds.yandex.net/i?id=6285b74c96d4290ef793bf762011f8b2d7507045-3645222-images-thumbs&n=13',
+    short:'Clearing, digging, and leveling that gives your build a strong, level start.',
+    lede:'A well-prepared site sets the pace for the whole build.',
+    body:'We prepare construction sites with proper clearing, digging, and leveling to ensure a strong start for your project. That means coordinating clearing, rough grading, and drainage planning up front, so your builder inherits a pad that is level, compacted, and ready rather than a problem to work around.',
+    features:['Site clearing and rough grading','Pad preparation and compaction','Access road and driveway base work','Drainage planning during prep','Coordination with your builder timeline']
+  }
+];
+
+const REVIEWS = [
+  {name:'J. Simmons', role:'Landowner, Jefferson TX', text:'The equipment quality and service are unmatched. Our project ran smoothly from the first walkthrough to the final clean-up. Highly recommend.'},
+  {name:'M. Kavanagh', role:'General Contractor', text:'We brought them in for site prep on a tight schedule and they delivered a level, compacted pad exactly on time. Communication was clear the whole way.'},
+  {name:'R. Oyelaran', role:'Rural Property Owner', text:'Land clearing on our acreage was handled with real care for the trees we wanted to keep. Professional crew, modern equipment, no surprises.'},
+  {name:'T. Whitfield', role:'Homeowner', text:'Stump grinding and clean-up left the yard looking better than we expected. They were on time, tidy, and easy to reach the whole time.'}
+];
+
+const FAQS = [
+  {q:'What areas do you serve?', a:'We are based in Jefferson, TX and serve surrounding East Texas properties, from rural acreage to residential and commercial building sites.'},
+  {q:'Are you licensed and insured?', a:'Yes. Every project is carried out by insured, experienced equipment operators, and we follow proper safety practices on every job site.'},
+  {q:'Do you offer free estimates?', a:'Yes. Send us a few details about your project through the contact form or give us a call, and we will schedule a walkthrough to provide an accurate quote.'},
+  {q:'How long does a typical project take?', a:'Timelines depend on the scope, from a single afternoon for stump grinding to several weeks for full land clearing or site preparation. We give you a clear schedule up front.'},
+  {q:'Do you handle permits for demolition or excavation?', a:'We can guide you through what documentation your project needs and coordinate the work around local requirements, so nothing holds up your timeline.'},
+  {q:'What happens to the debris and material removed?', a:'Debris, brush, and spoil are sorted and hauled off responsibly, and where possible, material such as grindings is repurposed as mulch on site.'}
+];
+
+const GALLERY = [
+  {img:'https://wideopensolution.co/wp-content/uploads/2026/03/excavator-in-a-marble-quarry-2026-03-11-00-57-37-utc_11zon-1024x682.jpg', cap:'Excavation in progress', big:true},
+  {img:'https://avatars.mds.yandex.net/i?id=1a0c6e0c01528f42facd39559d5261864740503f-5887333-images-thumbs&n=13', cap:'Excavation Work'},
+  {img:'https://avatars.mds.yandex.net/i?id=039c8a16b2a767b99c7729efb8d0b89308879711-6475641-images-thumbs&n=13', cap:'Demolition Work'},
+  {img:'https://avatars.mds.yandex.net/i?id=9d19aa24d115e5dcff31bd7006bee2dc156baaee-4434207-images-thumbs&n=13', cap:'Tree Services'},
+  {img:'https://avatars.mds.yandex.net/i?id=f1105d839624850d6f6ee479bd9faf7fabbaffe7-5235997-images-thumbs&n=13', cap:'Stump Removal & Grinding'},
+  {img:'https://avatars.mds.yandex.net/i?id=3772dc15ef97865e1b91bca192e868a2baa35677-6951086-images-thumbs&n=13', cap:'Land Clearing'},
+  {img:'https://avatars.mds.yandex.net/i?id=6285b74c96d4290ef793bf762011f8b2d7507045-3645222-images-thumbs&n=13', cap:'Building Site Prep'},
+  {img:'https://wideopensolution.co/wp-content/uploads/2026/04/White-Minimalist-Frame-Photo-Collage-Instagram-Post-1-1.jpg', cap:'Completed site work'},
+  {img:'https://wideopensolution.co/wp-content/uploads/2026/03/3RN4F45d.png', cap:'Heavy equipment on site'}
+];
+
+/* ============================= HELPERS ============================= */
+const app = document.getElementById('app');
+function svcById(id){ return SERVICES.find(s=>s.id===id); }
+function icon(name){
+  const icons = {
+    quality:'<path d="M12 3 4 6.5v5c0 5 3.4 8.7 8 9.5 4.6-.8 8-4.5 8-9.5v-5L12 3Z"/><path d="m9 12 2 2 4-4"/>',
+    consistency:'<circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/>',
+    safety:'<path d="M12 3 4 6.5v5c0 5 3.4 8.7 8 9.5 4.6-.8 8-4.5 8-9.5v-5L12 3Z"/>',
+    timely:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>'
+  };
+  return icons[name] || '';
+}
+
+/* ============================= NAV / FOOTER SERVICE LISTS ============================= */
+document.getElementById('navServiceList').innerHTML = SERVICES.map(s=>`<a href="#service/${s.id}">${s.name}</a>`).join('');
+document.getElementById('footServiceList').innerHTML = SERVICES.map(s=>`<li><a href="#service/${s.id}">${s.name}</a></li>`).join('') + `<li><a href="#services">View All Services</a></li>`;
+
+/* ============================= PAGE TEMPLATES ============================= */
+function homePage(){
+  return `
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow reveal">Welcome to Wide Open Solution</span>
+        <h1 class="reveal">Heavy Duty.<br>No <em>Compromise.</em></h1>
+        <p class="lead reveal">Wide Open Solution delivers reliable tree, dirt, and demolition services built to handle tough outdoor projects with precision and care. From land clearing and excavation to site preparation and debris removal, every job is completed with the right equipment and a strong focus on quality results you can depend on.</p>
+        <div class="hero-actions reveal">
+          <a href="#contact" class="btn btn-gold">Contact Now</a>
+          <a href="#services" class="btn btn-ghost">Explore Services</a>
+        </div>
+        <div class="hero-stats reveal">
+          <div><b>500+</b><span>Projects Completed</span></div>
+          <div><b>12+</b><span>Years of Experience</span></div>
+          <div><b>98%</b><span>Client Satisfaction</span></div>
+        </div>
+      </div>
+      <div class="hero-media reveal">
+        <div class="frame"><img src="https://wideopensolution.co/wp-content/uploads/2026/03/excavator-in-a-marble-quarry-2026-03-11-00-57-37-utc_11zon-1024x682.jpg" alt="Excavator working on site"></div>
+        <div class="hero-badge"><b>12+ Years</b><span>Building outdoor solutions across East Texas</span></div>
+      </div>
+    </div>
+  </section>
+
+  ${whyChooseSection()}
+
+  <section class="section section-stone">
+    <div class="wrap about-grid">
+      <div class="about-media">
+        <div class="stack">
+          <img class="main" src="https://wideopensolution.co/wp-content/uploads/2026/04/White-Minimalist-Frame-Photo-Collage-Instagram-Post-1-1.jpg" alt="Wide Open Solution site work collage">
+          <img class="small" src="https://wideopensolution.co/wp-content/uploads/2026/03/excavator-in-a-marble-quarry-2026-03-11-00-57-37-utc_11zon-1024x682.jpg" alt="Excavator in quarry">
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow on-light">About Us</span>
+        <h2>Your Partner in Excavation &amp; Outdoor Solutions</h2>
+        <p style="margin-top:18px;color:var(--ink-soft);font-size:15.5px;">Wide Open Solution is a trusted name in tree, dirt, and demolition services, dedicated to handling tough outdoor projects with skill and care. We specialize in excavation, land clearing, grading, and full site preparation work designed to support strong and reliable results.</p>
+        <div class="vision-box">
+          <h4>Our Vision</h4>
+          <p>To become a trusted name in excavation and outdoor solutions by delivering reliable, high-quality work through professional tree, dirt, and demolition services.</p>
+        </div>
+        <div class="hero-actions" style="margin-top:30px;"><a href="#about" class="btn btn-dark">Read More</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow on-light" style="justify-content:center;display:inline-flex;">Our Services</span>
+        <h2>What We Provide</h2>
+        <p>Wide Open Solution offers reliable tree, dirt, and demolition services including excavation, land clearing, grading, and site preparation. We focus on safe work, proper equipment use, and delivering clean, strong results for every project.</p>
+      </div>
+      <div class="svc-grid">${SERVICES.map(serviceCard).join('')}</div>
+      <div class="center-cta"><a href="#services" class="btn btn-dark">View All Services</a></div>
+    </div>
+  </section>
+
+  ${testimonialSection()}
+  ${ctaBanner()}
+  `;
+}
+
+function whyChooseSection(){
+  return `
+  <section class="section">
+    <div class="wrap why-grid">
+      <div>
+        <span class="eyebrow on-light">Why Choose Us</span>
+        <h2>Building Strong Foundations, From Ground Up</h2>
+        <p style="margin-top:18px;color:var(--ink-soft);font-size:15.5px;">Wide Open Solution brings the right equipment, hands-on experience, and a strong work ethic to every project. We handle everything from land clearing and excavation to demolition and site prep with precision and care. Our team focuses on doing the job right, staying on schedule, and keeping the process smooth from start to finish.</p>
+        <ul class="why-list">
+          <li><span class="check"></span>Reliable service on every project</li>
+          <li><span class="check"></span>Experienced and skilled team</li>
+          <li><span class="check"></span>Modern equipment for safe work</li>
+          <li><span class="check"></span>Commitment to quality results</li>
+        </ul>
+        <div class="hero-actions" style="margin-top:30px;"><a href="#contact" class="btn btn-gold">Contact Us Now</a></div>
+      </div>
+      <div>
+        <div class="award-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3 4 6.5v5c0 5 3.4 8.7 8 9.5 4.6-.8 8-4.5 8-9.5v-5L12 3Z"/><path d="m9 12 2 2 4-4"/></svg>
+          <div><b>Outstanding Service Excellence Award</b><span>Recognized for dependable outdoor project delivery</span></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-cell"><b>98%</b><span>Satisfied Clients</span></div>
+          <div class="stat-cell"><b>500+</b><span>Projects Done</span></div>
+          <div class="stat-cell"><b>12+</b><span>Years Active</span></div>
+          <div class="stat-cell"><b>100%</b><span>Quality Focus</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section-dark tight">
+    <div class="wrap">
+      <div class="pillars">
+        <div class="pillar"><span class="pillar-num">01</span><h4>Quality Services</h4><p>We deliver reliable outdoor services focused on quality workmanship and careful execution.</p></div>
+        <div class="pillar"><span class="pillar-num">02</span><h4>Consistency</h4><p>We maintain steady performance and provide dependable results on every project.</p></div>
+        <div class="pillar"><span class="pillar-num">03</span><h4>Safety &amp; Compliance</h4><p>We follow proper safety practices and ensure responsible handling on every job site.</p></div>
+        <div class="pillar"><span class="pillar-num">04</span><h4>Timely Delivery</h4><p>We complete projects on schedule while maintaining attention to detail and quality standards.</p></div>
+      </div>
+    </div>
+  </section>`;
+}
+
+function serviceCard(s,i){
+  return `
+  <div class="svc-card reveal">
+    <div class="thumb"><span class="idx">${s.tag}</span><img src="${s.image}" alt="${s.name}" loading="lazy"></div>
+    <div class="svc-body">
+      <h3>${s.name}</h3>
+      <p>${s.short}</p>
+      <a href="#service/${s.id}" class="svc-link">Learn More <span class="arrow"></span></a>
+    </div>
+  </div>`;
+}
+
+function testimonialSection(){
+  return `
+  <section class="section-dark">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow" style="justify-content:center;display:inline-flex;">Testimonials</span>
+        <h2>Client Confidence Speaks.</h2>
+        <p>Wide Open Solution is trusted by clients for delivering dependable tree, dirt, and demolition services with consistent quality and clear communication from start to finish.</p>
+      </div>
+      <div class="rev-track">
+        ${REVIEWS.map(r=>`
+        <div class="rev-card reveal">
+          <div class="stars">★★★★★</div>
+          <p>&ldquo;${r.text}&rdquo;</p>
+          <div class="rev-who">
+            <div class="rev-avatar">${r.name.charAt(0)}</div>
+            <div><b>${r.name}</b><span>${r.role}</span></div>
+          </div>
+        </div>`).join('')}
+      </div>
+    </div>
+  </section>`;
+}
+
+function ctaBanner(){
+  return `
+  <section class="cta-banner">
+    <div class="wrap">
+      <span class="eyebrow" style="justify-content:center;display:inline-flex;">Get Started</span>
+      <h2>Choose Quality, Choose Us!</h2>
+      <p>Wide Open Solution delivers reliable tree, dirt, and demolition services with a focus on quality workmanship and dependable results you can trust.</p>
+      <a href="#contact" class="btn btn-gold">Contact Us Now</a>
+    </div>
+  </section>`;
+}
+
+function aboutPage(){
+  return `
+  <section class="svc-hero">
+    <div class="bg" style="background-image:url('https://wideopensolution.co/wp-content/uploads/2026/03/excavator-in-a-marble-quarry-2026-03-11-00-57-37-utc_11zon-1024x682.jpg')"></div>
+    <div class="wrap"><div class="crumb"><a href="#home">Home</a> / About Us</div><h1>About Us</h1></div>
+  </section>
+
+  <section class="section">
+    <div class="wrap about-grid">
+      <div class="about-media">
+        <div class="stack">
+          <img class="main" src="https://wideopensolution.co/wp-content/uploads/2026/04/White-Minimalist-Frame-Photo-Collage-Instagram-Post-6-1.jpg" alt="Our story collage">
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow on-light">Our Story &amp; Commitment</span>
+        <h2>Your Partner in Excavation &amp; Outdoor Solutions</h2>
+        <p style="margin-top:18px;color:var(--ink-soft);font-size:15.5px;">Wide Open Solution provides dependable tree, dirt, and demolition services designed to handle outdoor projects with precision and care. We specialize in excavation, land clearing, grading, and full site preparation to support strong and lasting results.</p>
+        <p style="margin-top:14px;color:var(--ink-soft);font-size:15.5px;">Our team focuses on smooth project execution, using the right equipment and proven methods to get the job done efficiently. We are committed to delivering reliable workmanship and practical solutions for every project.</p>
+        <div class="vision-box">
+          <h4>Our Vision</h4>
+          <p>To become a trusted name in excavation and outdoor solutions by delivering reliable, high-quality work through professional tree, dirt, and demolition services.</p>
+        </div>
+        <div class="hero-actions" style="margin-top:26px;"><a href="#contact" class="btn btn-gold">Contact Us Now</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-stone">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow on-light" style="justify-content:center;display:inline-flex;">Who We Are</span>
+        <h2>Trusted Site Development Specialists</h2>
+        <p>Wide Open Solution is a dedicated team focused on providing reliable tree, dirt, and demolition services for all types of outdoor projects, handled with care and precision to ensure strong, lasting results.</p>
+      </div>
+      <div class="stat-row" style="margin-top:0;">
+        <div class="stat-cell"><b>98%</b><span>Satisfied Clients</span></div>
+        <div class="stat-cell"><b>500+</b><span>Projects Completed</span></div>
+        <div class="stat-cell"><b>12+</b><span>Years of Excellence</span></div>
+        <div class="stat-cell"><b>100%</b><span>Quality Focus</span></div>
+      </div>
+    </div>
+  </section>
+
+  ${whyChooseSection()}
+  ${testimonialSection()}
+  ${faqSection()}
+  ${ctaBanner()}
+  `;
+}
+
+function faqSection(){
+  return `
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow on-light" style="justify-content:center;display:inline-flex;">FAQs</span>
+        <h2>Common Questions, Answered</h2>
+        <p>A few things clients often ask before starting a project with us.</p>
+      </div>
+      <div class="faq-wrap">
+        ${FAQS.map((f,i)=>`
+        <div class="faq-item" data-i="${i}">
+          <button class="faq-q"><span>${f.q}</span><span class="plus"></span></button>
+          <div class="faq-a"><p>${f.a}</p></div>
+        </div>`).join('')}
+      </div>
+    </div>
+  </section>`;
+}
+
+function servicesPage(){
+  return `
+  <section class="svc-hero">
+    <div class="bg" style="background-image:url('https://wideopensolution.co/wp-content/uploads/2026/04/Excavation-work_16_11zon.jpg'), url('${SERVICES[0].image}')"></div>
+    <div class="wrap"><div class="crumb"><a href="#home">Home</a> / Services</div><h1>Our Services</h1></div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow on-light" style="justify-content:center;display:inline-flex;">What We Provide</span>
+        <h2>Complete Site &amp; Land Solutions</h2>
+        <p>Wide Open Solution offers reliable tree, dirt, and demolition services including excavation, land clearing, grading, and site preparation — every job completed with the right equipment and a focus on quality.</p>
+      </div>
+      <div class="svc-grid">${SERVICES.map(serviceCard).join('')}</div>
+    </div>
+  </section>
+  ${ctaBanner()}
+  `;
+}
+
+function servicePage(id){
+  const s = svcById(id);
+  if(!s){ location.hash = '#services'; return ''; }
+  const others = SERVICES.filter(x=>x.id!==id);
+  return `
+  <section class="svc-hero">
+    <div class="bg" style="background-image:url('${s.image}')"></div>
+    <div class="wrap">
+      <div class="crumb"><a href="#home">Home</a> / <a href="#services">Services</a> / ${s.name}</div>
+      <h1>${s.name}</h1>
+    </div>
+  </section>
+  <section class="svc-detail wrap">
+    <div>
+      <p class="lede">${s.lede}</p>
+      <p>${s.body}</p>
+      <h3>What's Included</h3>
+      <ul class="feat-list">
+        ${s.features.map(f=>`<li><span class="check"></span>${f}</li>`).join('')}
+      </ul>
+      <h3>How We Work</h3>
+      <div class="process">
+        <div class="proc-step"><b>01</b><span>Free consultation &amp; site walkthrough</span></div>
+        <div class="proc-step"><b>02</b><span>Clear plan, timeline &amp; quote</span></div>
+        <div class="proc-step"><b>03</b><span>Careful, on-schedule execution</span></div>
+        <div class="proc-step"><b>04</b><span>Full clean-up &amp; final walkthrough</span></div>
+      </div>
+    </div>
+    <aside>
+      <div class="side-card">
+        <h4>Need this done right?</h4>
+        <p>Tell us about your project and we'll get back to you with a straightforward quote — no pressure, no surprises.</p>
+        <a href="#contact" class="btn btn-gold">Request a Quote</a>
+        <p style="margin-top:16px;">Or call <a href="tel:9039300289" style="color:var(--gold);">(903) 930-0289</a></p>
+      </div>
+      <div class="other-svc">
+        <h4>Other Services</h4>
+        <ul>${others.map(o=>`<li><a href="#service/${o.id}">${o.name}</a></li>`).join('')}</ul>
+      </div>
+    </aside>
+  </section>
+  ${ctaBanner()}
+  `;
+}
+
+function galleryPage(){
+  return `
+  <section class="svc-hero">
+    <div class="bg" style="background-image:url('https://wideopensolution.co/wp-content/uploads/2026/03/excavator-in-a-marble-quarry-2026-03-11-00-57-37-utc_11zon-1024x682.jpg')"></div>
+    <div class="wrap"><div class="crumb"><a href="#home">Home</a> / Gallery</div><h1>Our Portfolio</h1></div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow on-light" style="justify-content:center;display:inline-flex;">Gallery</span>
+        <h2>Work We're Proud Of</h2>
+        <p>A look at real equipment and completed project work across excavation, tree, and land services.</p>
+      </div>
+      <div class="gal-grid">
+        ${GALLERY.map(g=>`
+        <div class="gal-item ${g.big?'big':''}">
+          <img src="${g.img}" alt="${g.cap}" loading="lazy">
+          <div class="cap">${g.cap}</div>
+        </div>`).join('')}
+      </div>
+    </div>
+  </section>
+  ${ctaBanner()}
+  `;
+}
+
+function contactPage(){
+  return `
+  <section class="svc-hero">
+    <div class="bg" style="background-image:url('https://wideopensolution.co/wp-content/uploads/2026/03/3RN4F45d.png')"></div>
+    <div class="wrap"><div class="crumb"><a href="#home">Home</a> / Contact Us</div><h1>Contact Us</h1></div>
+  </section>
+  <section class="section">
+    <div class="wrap contact-grid">
+      <div>
+        <span class="eyebrow on-light">Get in Touch</span>
+        <h2>Contact Us for Excavation &amp; Outdoor Services</h2>
+        <p style="margin-top:14px;color:var(--ink-soft);font-size:15px;">Get in touch with Wide Open Solution for reliable tree, dirt, and demolition services tailored to your project. Our team is ready to assist with excavation, land clearing, grading, and complete site preparation work.</p>
+
+        <div class="info-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s7-6.3 7-11.5A7 7 0 0 0 5 9.5C5 14.7 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
+          <div><b>Visit Us</b><span>210 Ma County Rd 3638, Jefferson, TX 75657</span></div>
+        </div>
+        <div class="info-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m3 6.5 9 6.5 9-6.5M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/></svg>
+          <div><b>Email Address</b><a href="mailto:rmcneely@wideopensolution.com">rmcneely@wideopensolution.com</a></div>
+        </div>
+        <div class="info-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .6 3a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c1 .3 2 .5 3 .6a2 2 0 0 1 1.7 2Z"/></svg>
+          <div><b>Phone Number</b><a href="tel:9039300289">(903) 930-0289</a></div>
+        </div>
+        <div class="info-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          <div><b>Working Hours</b><span>Mon – Fri, 8:00 AM – 5:00 PM</span></div>
+        </div>
+        <div class="map-box">
+          <iframe src="https://maps.google.com/maps?q=210%20Ma%20County%20Rd%203638%20Jefferson%2C%20TX%2075657&t=m&z=13&output=embed&iwloc=near" loading="lazy" title="Map to Wide Open Solution"></iframe>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <h3>Get Started with Your Site Project</h3>
+        <form id="contactForm" style="margin-top:26px;">
+          <div class="form-row">
+            <div class="field"><label>Full Name</label><input type="text" required placeholder="Your name"></div>
+            <div class="field"><label>Phone</label><input type="tel" required placeholder="(xxx) xxx-xxxx"></div>
+          </div>
+          <div class="field"><label>Email Address</label><input type="email" required placeholder="you@email.com"></div>
+          <div class="field"><label>Subject</label><input type="text" required placeholder="What do you need done?"></div>
+          <div class="field"><label>Message</label><textarea required placeholder="Tell us about your project — location, size, and timeline."></textarea></div>
+          <button type="submit" class="btn btn-gold" style="width:100%;">Send Message</button>
+          <p class="form-msg" id="formMsg">Thanks — your message has been received. We'll get back to you shortly at the contact details you provided.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+  `;
+}
+
+/* ============================= ROUTER ============================= */
+function render(){
+  const hash = location.hash.replace('#','') || 'home';
+  let html = '';
+  let pageKey = 'home';
+  if(hash === 'home' || hash === ''){ html = homePage(); pageKey='home'; }
+  else if(hash === 'about'){ html = aboutPage(); pageKey='about'; }
+  else if(hash === 'services'){ html = servicesPage(); pageKey='services'; }
+  else if(hash.startsWith('service/')){ html = servicePage(hash.split('/')[1]); pageKey='services'; }
+  else if(hash === 'gallery'){ html = galleryPage(); pageKey='gallery'; }
+  else if(hash === 'contact'){ html = contactPage(); pageKey='contact'; }
+  else { html = homePage(); pageKey='home'; }
+
+  app.innerHTML = html;
+  window.scrollTo({top:0, behavior:'instant' in window ? 'instant' : 'auto'});
+
+  // nav active state
+  document.querySelectorAll('.main-nav > ul > li > a').forEach(a=>{
+    a.classList.toggle('active', a.dataset.page === pageKey);
+  });
+  // close mobile menu
+  document.getElementById('mainNav').classList.remove('open');
+
+  bindFaqs();
+  bindContactForm();
+}
+window.addEventListener('hashchange', render);
+window.addEventListener('DOMContentLoaded', render);
+
+/* ============================= FAQ ACCORDION ============================= */
+function bindFaqs(){
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    const q = item.querySelector('.faq-q');
+    q.addEventListener('click', ()=>{
+      const isOpen = item.classList.contains('open');
+      item.parentElement.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+      if(!isOpen) item.classList.add('open');
+    });
+  });
+}
+
+/* ============================= CONTACT FORM (front-end demo) ============================= */
+function bindContactForm(){
+  const form = document.getElementById('contactForm');
+  if(!form) return;
+  form.addEventListener('submit', e=>{
+    e.preventDefault();
+    document.getElementById('formMsg').classList.add('show');
+    form.reset();
+  });
+}
+
+/* ============================= MOBILE MENU ============================= */
+document.getElementById('menuToggle').addEventListener('click', ()=>{
+  document.getElementById('mainNav').classList.toggle('open');
+});
+document.querySelector('.nav-services').addEventListener('click', function(e){
+  if(window.innerWidth <= 980 && e.target.closest('a[data-page="services"]')){
+    e.preventDefault();
+    this.classList.toggle('open');
+  }
+});
+
+/* ============================= INTRO SPLASH LOGIC ============================= */
+(function(){
+  const intro = document.getElementById('intro');
+  const flash = document.getElementById('boltFlash');
+  function finish(){
+    intro.classList.add('gone');
+    document.body.style.overflow = '';
+    setTimeout(()=>intro.remove(), 800);
+  }
+  document.body.style.overflow = 'hidden';
+  // synced light flashes with the bolt strike animation
+  setTimeout(()=>{ flash.style.transition='opacity .08s ease'; flash.style.opacity='.5'; setTimeout(()=>flash.style.opacity='0',90); }, 1550);
+  setTimeout(()=>{ flash.style.opacity='.25'; setTimeout(()=>flash.style.opacity='0',90); }, 1650);
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const total = reduced ? 200 : 3300;
+  const t = setTimeout(finish, total);
+  intro.addEventListener('click', ()=>{ clearTimeout(t); finish(); });
+})();
+</script>
+</body>
+</html>
